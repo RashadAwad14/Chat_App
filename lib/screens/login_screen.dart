@@ -105,13 +105,13 @@ class _LoginScreenState extends State<LoginScreen> {
                       try {
                         await loginUser();
                         showSnackBar(context, 'Success');
-                        Navigator.pushNamed(context, ChatScreen.id,arguments: email );
+                        Navigator.pushNamed(context, ChatScreen.id,
+                            arguments: email);
                       } on FirebaseAuthException catch (ex) {
                         if (ex.code == 'user-not-found') {
                           showSnackBar(context, 'user-not-found');
                         } else if (ex.code == 'wrong-password') {
-                          showSnackBar(
-                              context, 'Wrong-password ');
+                          showSnackBar(context, 'Wrong-password ');
                         }
                       } catch (ex) {
                         print(ex);
